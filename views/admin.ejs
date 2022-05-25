@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+</head>
+<body>
+    <h1>Welcome Wahai Pekerja</h1>
+
+    <h2>Ready Stock</h2>
+
+    <!-- <form action="/admin">
+        <input type="search" name="src1" id="src">
+        <input type="submit" value="cari">
+    </form><br> -->
+
+    <table border="1">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Description</td>
+                <td>Stock</td>
+                <td>Price</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(i = 0; i < data.length; i++) {%>
+            <tr>
+                <td><%= data[i].name %></td>
+                <td><%= data[i].shortDesc %></td>
+                <td><%= data[i].stock %></td>
+                <td><%= data[i].price %></td>
+                <td><a href="/admin/<%= data[i].id %>/detail/admin"><button>Detail</button></a></td>
+                <td><a href="/admin/deleteprod/<%= data[i].id %>"><button>Delete</button></a></td>
+                <td><a href="/admin/edit/<%= data[i].id %>"><button>Edit</button></a></td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table><br><br>
+
+    <h2>Out Of Stock!</h2>
+
+    <!-- <form action="/admin">
+        <input type="search" name="src2" id="src">
+        <input type="submit" value="cari">
+    </form><br> -->
+
+    <table border="1">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Description</td>
+                <td>Stock</td>
+                <td>Price</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(i = 0; i < outOfStock.length; i++) {%>
+            <tr>
+                <td><%= outOfStock[i].name %></td>
+                <td><%= outOfStock[i].shortDesc %></td>
+                <td><%= outOfStock[i].stock %></td>
+                <td><%= outOfStock[i].price %></td>
+                <td><a href="/admin/<%= outOfStock[i].id %>/detail/admin"><button>Detail</button></a></td>
+                <td><a href="/admin/deleteprod/<%= outOfStock[i].id %>"><button>Delete</button></a></td>
+                <td><a href="/admin/edit/<%= outOfStock[i].id %>"><button>Edit</button></a></td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table><br><br>
+
+    <h2>Deleted Product</h2>
+
+    <!-- <form action="/admin">
+        <input type="search" name="src3" id="src">
+        <input type="submit" value="cari">
+    </form><br> -->
+
+    <div style="opacity: 0.30;">
+        <table border="1">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Description</td>
+                    <td>Stock</td>
+                    <td>Price</td>
+                    <td>Restore</td>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(i = 0; i < deletedProduct.length; i++) {%>
+                <tr>
+                    <td><%= deletedProduct[i].name %></td>
+                    <td><%= deletedProduct[i].shortDesc %></td>
+                    <td><%= deletedProduct[i].stock %></td>
+                    <td><%= deletedProduct[i].price %></td>
+                    <td><a href="admin/restoreprod/<%= deletedProduct[i].id %> "><button>Restore</button></a></td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table><br><br>
+    </div>
+
+    <br><br><br>
+
+    <a href="/admin/addprod"><button>Add Product</button></a>
+</body>
+</html>

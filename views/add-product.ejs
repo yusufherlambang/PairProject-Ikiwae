@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add</title>
+</head>
+<body>
+    <form action="/admin/addprod" method="post" id="add">
+        <label for="name">name</label><br>
+        <input type="text" name="name" id="name"><br><br>
+
+        <label for="photo">photo</label><br>
+        <input type="url" name="photo" id="photo"><br><br>
+
+        <label for="stock">stock</label><br>
+        <input type="number" name="stock" id="stock"><br><br>
+
+        <label for="price">price</label><br>
+        <input type="number" name="price" id="price"><br><br>
+
+        <label for="shortdesc">shortdesc</label><br>
+        <input type="text" name="shortdesc" id="shortdesc"><br><br>
+
+        <label for="longdesc">longdesc</label><br>
+        <textarea name="longdesc" id="longdesc" form="add">Masukan detail lengkap product, pengiriman, dan sebagainya</textarea><br><br>
+
+        <!-- <%= JSON.stringify(data) %> -->
+
+        <label for="category">Pilih category:</label><br>
+        <select name="category" id="category">
+            <% for(i = 0; i < data.length; i++) { %>
+                <option value="<%= data[i].id %>"><%= data[i].name %></option>
+            <% } %>
+        </select><br><br><br>
+
+        <input type="submit" value="Save">
+
+    </form>
+</body>
+</html>

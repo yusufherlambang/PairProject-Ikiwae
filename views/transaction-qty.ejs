@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction</title>
+</head>
+<body>
+
+    <h1><%= data.numberTrx %></h1><br>
+
+    <img src="<%= data.Product.img %>" alt="">
+
+    <h1>Product</h1>
+    <h3><%= data.Product.name %></h3><br>
+
+    <h1>Quantity</h1>
+    <form action="/editqty/<%= trxID %>?prod=<%= data.Product.id %>" method="post">
+        <input type="number" name="newQty" id="newQty" value="<%= data.quantity %>">
+        <input type="submit" value="done">
+    </form>
+
+    <h1>Price</h1>
+    <h3><%= formatRupiah(data.totalPrice) %></h3><br>
+
+    <h1>Status</h1>
+    <h3><%= data.status %></h3><br>
+
+    <a href="/payment/<%=trxID%>"><button>Payment</button></a>
+    <a href="/cancelTrx/<%=trxID%>"><button>Cancel</button></a>
+
+</body>
+</html>

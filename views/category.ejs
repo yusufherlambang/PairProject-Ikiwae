@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Description</td>
+                <td>Stock</td>
+                <td>Price</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(i = 0; i < data.length; i++) {%>
+            <tr>
+                <td><%= data[i].name %></td>
+                <td><%= data[i].shortDesc %></td>
+                <td><%= data[i].stock %></td>
+                <td><%= data[i].price %></td>
+                <td><a href="/<%= data[i].id %>/detail"><button>Detail</button></a></td>
+                <td><a href="/transaction/<%= data[i].id %>?from=home"><button>Buy</button></a></td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <a href="/"><button>back</button></a>
+</body>
+</html>

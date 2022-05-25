@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+</head>
+<body>
+    <img src="<%= data.img %>" alt="<%= data.name %>">
+    <h3><strong>Name:</strong> <%= data.name %></h3>
+    <h3><strong>Description:</strong><%= data.longDesc %></h3>
+    <h3><strong>Stock:</strong> <%= data.stock %></h3>
+    <h1><%= formatRupiah(data.price) %></h1>
+    <h3><strong>Last Updated:</strong> <%= formatDate(data.createdAt) %></h3>
+
+    <form action="/transaction/<%= data.id %>" method="post">
+        <label for="quantity">Quantity</label>
+        <input type="number" name="quantity" id="quantity">
+
+        <input type="submit" value="Buy">
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <div>
+        <a href="/?=logout:succes">
+            <button type="button">Log Out</button>
+        </a>
+        <a href="/login">
+            <button type="button">Log In</button>
+        </a>
+        <a href="/register">
+            <button type="button">Register</button>
+        </a>
+        <a href="/admin">
+            <button type="button">Admin</button>
+        </a>
+
+        <a href="/profile/1">
+            <button type="button">Profile</button>
+        </a>
+    </div>
+
+    <form action="/"><br>
+        <input type="search" name="src" id="src">
+        <input type="submit" value="cari">
+    </form><br>
+
+    <p>
+        <p>Sort by :</p>
+        <a href="/?srtprc=asc">
+            <button type="button">Berdasarkan Termurah</button>
+        </a>
+        <a href="/?srtprc=desc">
+            <button type="button">Berdasarkan Termahal</button>
+        <a><br><br>
+    </p>
+
+
+    <table border="1">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Description</td>
+                <td>Stock</td>
+                <td>Price</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(i = 0; i < data.length; i++) {%>
+            <tr>
+                <td><%= data[i].name %></td>
+                <td><%= data[i].shortDesc %></td>
+                <td><%= data[i].stock %></td>
+                <td><%= formatRupiah(data[i].price) %></td>
+                <td><a href="/<%= data[i].id %>/detail"><button>Detail</button></a></td>
+                <!-- <td><a href="/transaction/<%= data[i].id %>?from=home"><button>Buy</button></a></td> -->
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>
